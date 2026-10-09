@@ -1,0 +1,12 @@
+[submodule "python/repo_test"]
+	path = python/repo_test
+	url = https://github.com/jpg0nz4l3z/test.git
+[submodule "python/repositorio_python"]
+	path = python/repositorio_python
+	url = https://github.com/anaijg/repositorio_python.git
+[submodule "entorno_cliente/repo_entorno_cliente"]
+	path = entorno_cliente/repo_entorno_cliente
+	url = https://github.com/DWEC2627/jpg0nz4l3z.git
+[submodule "diseño/repo_disenio"]
+	path = diseño/repo_disenio
+	url = https://github.com/DIW2627/jpg0nz4l3z.git
