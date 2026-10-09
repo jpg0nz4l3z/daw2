@@ -1,0 +1,13 @@
+1.1 El desarrollo web actual					
+- ¿Cuáles son los objetivos del despliegue?
+a. Escalabilidad. accesibilidad, seguridad, estabilidad --> opción correcta. estos son los objetivos del despliegue
+b. Accesibilidad, modularidad, horizontalidad, verticalidad --> horizontalidad y verticalidad serían más bien estrategias de escalado de software
+c. Herencia, encapsulación, polimorfismo, jerarquía --> Serían las características de la POO
+d. Gestionar dominios, gestionar dns, interactividad --> los dos primeros sería más objetivos de un proveedor de dominios, y el último más algo que se logra con js en una web
+
+1.2 Modelos de ejecución de código en el servidor
+- ¿Cuál de las siguientes opciones permite mejorar la experiencia de usuario, pero no significa una mejora en la seguridad?
+a. Realizar Validaciones tanto en el back como en el cliente --> es lo mas recomendable
+b. Las validaciones en el backend --> siempre deberían realizarse
+c. Usar un framework de front como Angular, React o Vue --> solo acelera el desarrollo de lado cliente
+d. Realizar validaciones en el cliente (navegador) --> opción correcta. El cliente puede validar pero no garantiza que la información se envíe correctamente. El backend puede recibir la información por otra vía

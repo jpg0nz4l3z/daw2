@@ -1,0 +1,12 @@
+1.1 El desarrollo web actual					
+- ¿Cuáles son los objetivos del despliegue?
+a. Escalabilidad. accesibilidad, seguridad, estabilidad
+b. Accesibilidad, modularidad, horizontalidad, verticalidad
+c. Herencia, encapsulación, polimorfismo, jerarquía
+d. Gestionar dominios, gestionar dns, interactividad
+1.2 Modelos de ejecución de código en el servidor
+- ¿Cuál de las siguientes opciones permite mejorar la experiencia de usuario, pero no significa una mejora en la seguridad?
+a. Realizar Validaciones tanto en el back como en el front
+b. Las validaciones en el backend
+c. Usar un framework de front como Angular, React o Vue
+d. Realizar validaciones en el cliente/front (navegador)
