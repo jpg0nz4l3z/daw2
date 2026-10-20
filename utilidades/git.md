@@ -1,4 +1,4 @@
-Git — Guía práctica de comandos para el día a día
+**Git — Guía práctica de comandos para el día a día**
 
 Guía rápida de los comandos Git más utilizados, con ejemplos prácticos.
 
