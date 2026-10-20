@@ -1,0 +1,9 @@
+Ejercicios
+
+Práctica 1. Primera aplicación PHP
+Práctica 2. Configuración de Virtual Hosts
+Práctica 3. Configuración HTTPS mediante certificado SSL-TLS autofirmado
+Práctica 4. DNS aplicado al despliegue Web
+Práctica 5. Instalación y configuración de MariaDB y conexión desde PHP
+Práctica 6. Despliegue de una aplicación Python con Flask
+Práctica 7. Publicar Flask mediante Apache usando Reverse Proxy

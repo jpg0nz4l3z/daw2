@@ -1,0 +1,10 @@
+Teoría
+
+UD1 Arquitectura Web, protocolos y herramientas
+¿Qué es el protocolo HTTP y como funciona?
+Esquema de como funciona https
+Ejercicios
+
+Paginas estáticas y dinámicas
+Práctica NO EVALUABLE - Análisis de Peticiones y Respuestas HTTP con HTTP Header Live
+Laboratorio base despliegue de aplicaciones web v3 - FINALIZADO
