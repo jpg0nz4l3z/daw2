@@ -1,299 +1,307 @@
-Git — Guía práctica de comandos para el día a día
+# Git — Comandos básicos del día a día
 
-Guía rápida de los comandos Git más utilizados, con ejemplos prácticos.
+
 
 1. Configuración inicial
-Configurar nombre y email
+
+```shell
 git config --global user.name "Tu Nombre"
 git config --global user.email "tu@email.com"
+```
+* Ver config
 
-Ver configuración
+```shell
 git config --list
+```
 
-Configurar el editor
+* Configurar el editor
+
+```shell
 git config --global core.editor "code --wait"
+```
 
 2. Crear o descargar un repositorio
+
+```shell
 git init
+```
 
-Inicializa un repositorio Git en la carpeta actual.
+* Inicializa un repositorio Git en la carpeta actual.
 
+```shell
 mkdir mi-proyecto
 cd mi-proyecto
 git init
+```
 
-git clone
+* Clona un repositorio existente.
 
-Clona un repositorio existente.
-
+```shell
 git clone https://github.com/usuario/proyecto.git
-
+```
 
 Ejemplo:
 
+```shell
 git clone https://github.com/empresa/backend.git
 cd backend
+```
 
 3. Comprobar el estado
+
+```shell
 git status
-
-Muestra el estado actual del repositorio.
-
-git status
-
+```
 
 Ejemplo:
 
 On branch main
 
+```text
 Changes not staged for commit:
   modified:   app.js
-
+```
 
 Es recomendable ejecutarlo frecuentemente.
 
 4. Ver cambios
+
+```shell
 git diff
+```
 
 Muestra cambios que todavía no están en staging.
-
-git diff
-
 
 Ejemplo:
 
 - const port = 3000;
 + const port = 8080;
 
+```shell
 git diff --staged
+```
 
 Muestra los cambios preparados para el próximo commit.
 
-git diff --staged
-
+```shell
 git diff HEAD
+```
 
 Muestra todos los cambios respecto al último commit.
 
-git diff HEAD
 
 5. Añadir cambios al staging
+
+```shell
 git add archivo
+```
 
 Añade un archivo concreto.
 
-git add app.js
-
+```shell
 git add .
+```
 
 Añade todos los cambios del directorio actual.
 
-git add .
-
 Añadir varios archivos
+
+```shell
 git add app.js index.html styles.css
+```
 
 6. Crear commits
+
+```shell
 git commit
+git commit -m "Añadir validación del formulario"
+```
 
 Guarda los cambios que están en staging.
 
-git commit -m "Añadir validación del formulario"
-
-
-Flujo habitual:
-
-git status
-git add .
-git commit -m "Corregir validación del formulario"
-
-Buen mensaje de commit
-git commit -m "Añadir autenticación con JWT"
-
-
-Evita mensajes poco descriptivos:
-
-git commit -m "cambios"
-git commit -m "cosas"
-git commit -m "fix"
-
 7. Ver el historial
+
+```shell
 git log
+```
 
 Muestra el historial completo.
 
-git log
-
+```shell
 git log --oneline
+```
 
 Muestra el historial de forma resumida.
 
-git log --oneline
-
-
 Ejemplo:
 
+```text
 a81f3c2 Añadir autenticación
 73bd921 Corregir error en login
 2f91a42 Crear estructura inicial
+```
 
+```shell
 git log --oneline --graph --all
+```
 
 Muestra las ramas gráficamente.
 
+```shell
 git log --oneline --graph --all
+```
 
-
-Ejemplo:
-
-* a81f3c2 (HEAD -> feature/login) Añadir autenticación
-| * 91bc123 (main) Actualizar README
-|/
-* 73bd921 Corregir configuración
-
+```shell
 git show
+git show a81f3c2
+```
 
 Muestra los cambios realizados en un commit.
 
-git show a81f3c2
-
-
 Para ver el último commit:
 
+```shell
 git show HEAD
+```
 
 8. Trabajar con ramas
+
+```shell
 git branch
+```
 
 Lista las ramas locales.
 
-git branch
+```shell
+git branch -r
+```
 
+Lista las ramas remotas
 
-Ejemplo:
-
-* main
-  feature/login
-  feature/payment
-
-Crear una rama
+```shell
 git branch feature/login
-
-
+```
 Esto crea la rama pero no cambia a ella.
 
+```shell
 git switch
+```
 
 Cambiar de rama.
 
-git switch feature/login
-
-Crear y cambiar a una rama
-
-Forma recomendada:
-
+```shell
 git switch -c feature/login
+```
 
+Crear y cambiar rama
 
-Equivale a:
-
-git branch feature/login
-git switch feature/login
-
+```shell
 git branch -d
+git branch -d feature/login
+git branch -D feature/login
+```
 
 Eliminar una rama local.
 
-git branch -d feature/login
+```shell
+git push origin --delete nombrerama
+```
 
-git branch -D
-
-Forzar la eliminación de una rama.
-
-git branch -D feature/login
-
-
-⚠️ Úsalo con cuidado porque puede eliminar trabajo que todavía no hayas integrado.
+Eliminar una rama remota
 
 9. Repositorios remotos
+
+```shell
 git remote -v
+```
 
 Muestra los repositorios remotos configurados.
 
-git remote -v
-
-
-Ejemplo:
-
-origin  https://github.com/usuario/proyecto.git (fetch)
-origin  https://github.com/usuario/proyecto.git (push)
-
 Añadir un remoto
+
+```shell
 git remote add origin https://github.com/usuario/proyecto.git
+```
 
 Cambiar la URL del remoto
+
+```shell
 git remote set-url origin https://github.com/usuario/nuevo-repo.git
+```
 
 10. Descargar cambios
+
+```shell
 git fetch
+```
 
 Descarga información del remoto sin modificar tu rama actual.
 
 git fetch origin
 
-
+```text
 Ejemplo:
 
 git fetch origin
 git log --oneline --all
-
+```
 
 Es útil para comprobar qué cambios existen en remoto antes de integrarlos.
 
+```shell
 git pull
+```
 
 Descarga e integra cambios del repositorio remoto.
 
-git pull
-
-
 También puedes especificar remoto y rama:
 
+```shell
 git pull origin main
+```
 
 11. Subir cambios
+
+```shell
 git push
+```
 
 Sube tus commits al repositorio remoto.
 
-git push
-
 Primera vez que subes una rama
+
+```shell
 git push -u origin feature/login
-
-
-Después podrás utilizar simplemente:
-
-git push
+or
+git push --set-upstream origin feature/login
+```
 
 12. Fusionar ramas
+
+```shell
 git merge
+```
 
 Integra una rama dentro de otra.
 
+```shell
 Ejemplo: fusionar feature/login en main.
 
 git switch main
 git merge feature/login
-
+```
 
 Si no existen conflictos, Git realizará la integración automáticamente.
 
 13. Rebase
+
+```shell
 git rebase
+```
 
 Recoloca tus commits encima de otra rama.
 
+```text
 git switch feature/login
 git rebase main
 
@@ -308,45 +316,60 @@ A---B---C---D  main
 Después:
 
 A---B---C---D---E'---F'  feature/login
-
+```
 
 ⚠️ rebase reescribe el historial. Evita hacer rebase de commits que otras personas estén utilizando en una rama compartida.
 
 14. Deshacer cambios
+
+```shell
 git restore archivo
+```
 
 Descarta cambios locales de un archivo que todavía no has commiteado.
 
+```shell
 git restore app.js
-
+```
 
 ⚠️ Los cambios descartados de esta forma pueden ser difíciles de recuperar.
 
+```shell
 git restore --staged
+```
 
 Saca un archivo del staging sin eliminar sus cambios.
 
+```shell
 git restore --staged app.js
+```
 
-
+```text
 Por ejemplo:
 
 git add app.js
 git restore --staged app.js
+```
 
 
 El archivo seguirá modificado, pero ya no estará preparado para el commit.
 
 15. Deshacer commits
+
+```shell
 git revert
+```
 
 Crea un nuevo commit que deshace otro commit.
 
+```shell
 git revert a81f3c2
+```
 
 
 Es especialmente recomendable para commits que ya has subido al repositorio remoto.
 
+```text
 Ejemplo:
 
 A---B---C---D
@@ -356,41 +379,51 @@ A---B---C---D
 A---B---C---D---E
                 |
                 E deshace C
+```
 
+```shell
 git reset --soft
+```
 
 Deshace el último commit pero mantiene los cambios en staging.
 
+```shell
 git reset --soft HEAD~1
+```
 
+```shell
 git reset --mixed
+```
 
 Deshace el último commit y saca los cambios del staging.
 
+```shell
 git reset --mixed HEAD~1
-
+```
 
 También es el comportamiento por defecto:
 
-git reset HEAD~1
-
+```shell
 git reset --hard
+```
 
 Deshace el commit y elimina los cambios.
 
+```shell
 git reset --hard HEAD~1
-
+```
 
 ⚠️ Mucho cuidado con --hard: puedes perder trabajo.
 
 16. Guardar trabajo temporalmente
+
+```shell
 git stash
+```
 
 Guarda temporalmente cambios sin crear un commit.
 
-git stash
-
-
+```shell
 Ejemplo:
 
 # Estás trabajando en una funcionalidad
@@ -404,71 +437,92 @@ git switch main
 # Más tarde vuelves
 git switch feature/login
 git stash pop
+```
 
+```shell
 git stash list
+```
 
 Muestra los stashes existentes.
 
+```shell
 git stash list
+```
 
-
+```shell
 Ejemplo:
 
 stash@{0}: WIP on feature/login
 stash@{1}: WIP on feature/payment
+```
 
+```shell
 git stash pop
+```
 
 Recupera el último stash y lo elimina de la lista.
 
-git stash pop
-
+```shell
 git stash apply
+```
 
 Recupera un stash pero lo mantiene guardado.
 
+```shell
 git stash apply stash@{0}
+```
 
+```shell
 git stash drop
+git stash drop stash@{0}
+```
 
 Elimina un stash.
 
-git stash drop stash@{0}
-
 17. Eliminar y mover archivos
+
+```shell
 git rm
+```
 
 Elimina un archivo y registra la eliminación en Git.
 
+```shell
 git rm archivo.txt
+````
 
-
+```shell
 Después:
 
 git commit -m "Eliminar archivo antiguo"
+```
 
 git mv
 
+```shell
 Mueve o renombra un archivo.
 
 git mv antiguo.js nuevo.js
 
-
 Después:
 
 git commit -m "Renombrar módulo"
+```
+
+
 
 18. Buscar dentro del proyecto
+
+```shell
 git grep
+```
 
 Busca texto dentro de los archivos controlados por Git.
 
+```shell
 git grep "TODO"
+```
 
-
-Otro ejemplo:
-
-git grep "console.log"
 
 19. Saber quién modificó una línea
 git blame
@@ -951,3 +1005,13 @@ git remote add origin https://github.com
 
 # Sube tus archivos por primera vez
 git push -u origin main
+
+# Crear una rama con historial nuevo 
+git switch --orphan nueva-rama
+
+
+# Si quieres empezar con el directorio de trabajo limpio de archivos versionados (los borra del disco)
+git rm -rf .
+
+# quita los archivos del seguimiento de Git, pero los conserva en tu disco
+git rm -r --cached .
